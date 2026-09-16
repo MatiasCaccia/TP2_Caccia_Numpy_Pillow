@@ -16,7 +16,6 @@ los implemente.
 """
 
 import os
-import sys
 
 from src import canales_rgb, dibujo, filtro_posicional, imagen_io, numpy_basico, transformaciones
 from src.rutas import (
@@ -25,29 +24,6 @@ from src.rutas import (
     carpeta_salida,
     elegir_imagen_interactivamente,
 )
-
-
-def verificar_dependencias() -> None:
-    """Chequea que numpy y Pillow estén instalados antes de arrancar.
-
-    Si falta alguna, imprime el comando de instalación y corta la
-    ejecución en lugar de fallar más adelante con un traceback confuso.
-    """
-    faltantes = []
-    try:
-        import numpy  # noqa: F401
-    except ImportError:
-        faltantes.append("numpy")
-    try:
-        import PIL  # noqa: F401
-    except ImportError:
-        faltantes.append("pillow")
-
-    if faltantes:
-        paquetes = " ".join(faltantes)
-        print(f"Faltan instalar: {', '.join(faltantes)}")
-        print(f"Ejecutá: pip3 install {paquetes}")
-        sys.exit(1)
 
 
 def ejecutar_todos_los_ejemplos(ruta_imagen: str) -> None:
@@ -73,7 +49,6 @@ def ejecutar_todos_los_ejemplos(ruta_imagen: str) -> None:
 
 def main() -> None:
     """Orquesta la ejecución interactiva de todos los ejemplos."""
-    verificar_dependencias()
 
     print("Clase NumPy + Pillow — TP2 Museo de Pantallas")
     print(f"Directorio de trabajo: {os.getcwd()}")

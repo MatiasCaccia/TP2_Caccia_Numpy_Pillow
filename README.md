@@ -1,1 +1,1 @@
-# TP2_Caccia_Numpy_Pillow
+# TP2 — Museo de Pantallas · NumPy y Pillow
